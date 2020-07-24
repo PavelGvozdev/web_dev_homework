@@ -1,5 +1,5 @@
-if (getCookie('city') != true) {
-    console.log('block undefined')
+if (getCookie('city')) {
+    //console.log('block defined')
     let inp = document.querySelector('#city-name');
     inp.remove();
 
@@ -15,12 +15,15 @@ if (getCookie('city') != true) {
         deleteCookie('city');
     });
 } else {
-    console.log('block defined')
-
+    //console.log('block undefined')
     let inp = document.querySelector('#city-name');
+    inp.placeholder = "Введите название города";
+    inp.value = "";
+    let date = new Date(Date.now() + 86400e3);
+    date = date.toUTCString();
     inp.oninput = () => {
         setCookie('city', inp.value, {
-            'max-age': 3600 // cookie live 10 min
+            expires: date,
         })
     };
 }
@@ -29,13 +32,13 @@ function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
-   return matches ? decodeURIComponent(matches[1]) : undefined;
+    return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
 function setCookie(name, value, options = {}) {
-
     options = {
         path: '/',
+        ...options
     };
 
     if (options.expires.toUTCString) {
@@ -43,7 +46,6 @@ function setCookie(name, value, options = {}) {
     }
 
     let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
-
     for (let optionKey in options) {
         updatedCookie += "; " + optionKey;
         let optionValue = options[optionKey];
@@ -51,13 +53,12 @@ function setCookie(name, value, options = {}) {
         updatedCookie += "=" + optionValue;
         }
     }
-
     document.cookie = updatedCookie;
 }
 
 function deleteCookie(name) {
+    let t = new Date() - 60;
     setCookie(name, "", {
-        'max-age': -1
+        'expires': t
     })
-}  
-
+}
