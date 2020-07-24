@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 120px;
+    margin-top: 10px;
+}
+
+fieldset {
+    width: 800px;
+}

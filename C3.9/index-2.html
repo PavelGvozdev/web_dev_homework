@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Шесть галочек</title>
 </head>
 <body>
-    
+    <h1>Шесть галочек</h1>
+    <fieldset>
+        <legend>Выберете только истинные утверждения</legend>
+        <div>
+            <input type="checkbox" id="not-call" name="scales">
+            <label for="not call">не звонить мне</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="I-read-it" name="scales">
+            <label for="I read it">я прочитал и согласен с правилами пользования сервисом</label>
+        </div>
+
+        <div>    
+            <input type="checkbox" id="I-dont-choose" name="scales">
+            <label for="I don't choose">я не выбираю эту галочку</label>
+        </div>
+
+        <div>    
+            <input type="checkbox" id="I-confirm" name="scales">
+            <label for="I confirm">я подтверждаю, что свобода в интернете — это возможность выбирать галочки</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="Im-over-12-years-old" name="scales">
+            <label for="I'm over 12 years old">мне больше 12 лет</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="this-task-is-completed" name="scales">
+            <label for="this task is completed">это задание выполнено правильно</label>
+        </div>
+    </fieldset>
+    <button name="save" id="save">Сохранить</button>
+
+    <button name="save" id="del-all">Удалить все куки</button>
+
+    <script src="js/script-2.js"></script>
+
 </body>
 </html>
